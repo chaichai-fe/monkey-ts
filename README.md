@@ -10,7 +10,7 @@
 [![Vite](https://img.shields.io/badge/Vite-7.1-646CFF.svg)](https://vitejs.dev/)
 [![Vitest](https://img.shields.io/badge/Vitest-4.0-6E9F18.svg)](https://vitest.dev/)
 
-[在线演示](#) | [完整文档](./docs/) | [快速开始](#快速开始)
+[完整文档](./docs/)
 
 </div>
 
@@ -111,16 +111,13 @@ yarn install
 pnpm dev
 ```
 
-然后访问 http://localhost:5173，在浏览器中体验 Monkey 语言！
+然后访问 http://localhost:5173
 
 ### 运行测试
 
 ```bash
 # 运行所有测试
 pnpm test
-
-# 以 UI 模式运行测试
-pnpm test:ui
 
 # 运行特定模块测试
 pnpm test lexer
