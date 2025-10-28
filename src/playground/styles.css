@@ -1,0 +1,390 @@
+/* 全局样式 */
+:root {
+  --primary-color: #4a90e2;
+  --primary-hover: #357abd;
+  --success-color: #5cb85c;
+  --error-color: #d9534f;
+  --bg-color: #1e1e1e;
+  --surface-color: #252526;
+  --surface-hover: #2d2d30;
+  --border-color: #3e3e42;
+  --text-color: #d4d4d4;
+  --text-secondary: #858585;
+  --code-bg: #1e1e1e;
+  --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --radius: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  color: var(--text-color);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+code,
+pre,
+.code-editor,
+.output-display {
+  font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+}
+
+/* 应用容器 */
+#app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* 头部 */
+.header {
+  text-align: center;
+  padding: 2rem 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  border-bottom: 2px solid var(--border-color);
+}
+
+.header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  color: var(--text-secondary);
+  font-size: 1rem;
+}
+
+/* 主容器 */
+.container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 1rem;
+  padding: 2rem;
+  max-width: 1800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* 区域样式 */
+.editor-section,
+.output-section {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface-color);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+}
+
+.section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.section-header h2 {
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.clear-btn {
+  padding: 0.4rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.9rem;
+}
+
+.clear-btn:hover {
+  background: var(--surface-hover);
+  color: var(--text-color);
+  border-color: var(--primary-color);
+}
+
+/* 代码编辑器 */
+.code-editor {
+  flex: 1;
+  padding: 1.5rem;
+  background: var(--code-bg);
+  color: var(--text-color);
+  border: none;
+  resize: none;
+  font-size: 1rem;
+  line-height: 1.6;
+  outline: none;
+  min-height: 400px;
+}
+
+.code-editor::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+/* 示例按钮区域 */
+.examples {
+  display: flex;
+  gap: 0.5rem;
+  padding: 1rem 1.5rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-top: 1px solid var(--border-color);
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.examples-label {
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  margin-right: 0.5rem;
+}
+
+.example-btn {
+  padding: 0.4rem 0.8rem;
+  background: var(--surface-hover);
+  border: 1px solid var(--border-color);
+  border-radius: 4px;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.2s;
+  font-size: 0.85rem;
+}
+
+.example-btn:hover {
+  background: var(--primary-color);
+  border-color: var(--primary-color);
+  transform: translateY(-1px);
+}
+
+/* 运行按钮区域 */
+.run-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.run-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1.5rem 1rem;
+  background: linear-gradient(135deg, var(--success-color), #449d44);
+  border: none;
+  border-radius: var(--radius);
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: var(--shadow);
+  min-width: 100px;
+}
+
+.run-btn:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 6px 12px rgba(92, 184, 92, 0.4);
+}
+
+.run-btn:active {
+  transform: translateY(0) scale(0.98);
+}
+
+.run-btn svg {
+  width: 32px;
+  height: 32px;
+}
+
+/* 输出显示区 */
+.output-display {
+  flex: 1;
+  padding: 1.5rem;
+  background: var(--code-bg);
+  overflow-y: auto;
+  font-size: 1rem;
+  line-height: 1.6;
+  min-height: 400px;
+}
+
+.welcome-message {
+  color: var(--text-secondary);
+}
+
+.welcome-message p {
+  margin-bottom: 0.8rem;
+}
+
+.welcome-message ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.welcome-message li {
+  margin-bottom: 0.5rem;
+}
+
+.welcome-message code {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.9em;
+}
+
+.welcome-message kbd {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.4rem;
+  border-radius: 3px;
+  font-size: 0.85em;
+  border: 1px solid var(--border-color);
+}
+
+/* 输出结果样式 */
+.output-line {
+  margin-bottom: 0.8rem;
+  padding: 0.6rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.02);
+  border-left: 3px solid var(--primary-color);
+}
+
+.output-result {
+  color: #4ec9b0;
+  font-weight: 500;
+}
+
+.output-error {
+  color: var(--error-color);
+  border-left-color: var(--error-color);
+}
+
+.output-error-icon {
+  margin-right: 0.5rem;
+}
+
+.output-write {
+  border-left-color: #ce9178;
+}
+
+.output-write .output-result {
+  color: #ce9178;
+}
+
+.output-timestamp {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+  margin-bottom: 0.3rem;
+}
+
+/* 页脚 */
+.footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-top: 1px solid var(--border-color);
+}
+
+.footer em {
+  color: var(--primary-color);
+}
+
+/* 响应式设计 */
+@media (max-width: 1200px) {
+  .container {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto auto auto;
+  }
+
+  .run-section {
+    padding: 1rem 0;
+  }
+
+  .run-btn {
+    flex-direction: row;
+    width: 100%;
+    justify-content: center;
+    padding: 1rem 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .container {
+    padding: 1rem;
+  }
+
+  .code-editor,
+  .output-display {
+    min-height: 300px;
+  }
+
+  .examples {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .example-btn {
+    width: 100%;
+  }
+}
+
+/* 滚动条样式 */
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-color);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary);
+}
+
+/* 加载动画 */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.loading {
+  animation: pulse 1.5s ease-in-out infinite;
+}

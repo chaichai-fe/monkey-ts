@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Monkey 编程语言 - 在线解释器</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 标题区域 -->
+      <header class="header">
+        <h1>🐵 Monkey 编程语言</h1>
+        <p class="subtitle">在线交互式解释器 - TypeScript 实现</p>
+      </header>
+
+      <!-- 主要内容区域 -->
+      <main class="container">
+        <!-- 左侧：代码编辑器 -->
+        <section class="editor-section">
+          <div class="section-header">
+            <h2>📝 代码编辑器</h2>
+            <button id="clearBtn" class="clear-btn" title="清空代码">
+              <span>清空</span>
+            </button>
+          </div>
+          <textarea
+            id="codeInput"
+            class="code-editor"
+            placeholder='在这里输入 Monkey 代码...&#10;&#10;示例:&#10;let name = "Monkey";&#10;let age = 5;&#10;let add = fn(x, y) { x + y };&#10;&#10;add(age, 10);'
+            spellcheck="false"
+          ></textarea>
+
+          <!-- 示例代码按钮 -->
+          <div class="examples">
+            <span class="examples-label">快速示例：</span>
+            <button class="example-btn" data-example="hello">
+              Hello World
+            </button>
+            <button class="example-btn" data-example="fibonacci">
+              斐波那契
+            </button>
+            <button class="example-btn" data-example="array">数组操作</button>
+            <button class="example-btn" data-example="hash">哈希表</button>
+          </div>
+        </section>
+
+        <!-- 中间：运行按钮 -->
+        <div class="run-section">
+          <button id="runBtn" class="run-btn" title="运行代码 (Ctrl+Enter)">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M8 5v14l11-7z" />
+            </svg>
+            <span>运行</span>
+          </button>
+        </div>
+
+        <!-- 右侧：输出结果 -->
+        <section class="output-section">
+          <div class="section-header">
+            <h2>📊 执行结果</h2>
+            <button id="clearOutputBtn" class="clear-btn" title="清空输出">
+              <span>清空</span>
+            </button>
+          </div>
+          <div id="output" class="output-display">
+            <div class="welcome-message">
+              <p>👋 欢迎使用 Monkey 编程语言！</p>
+              <p>
+                在左侧输入代码，点击运行按钮或按 <kbd>Ctrl+Enter</kbd> 执行。
+              </p>
+              <br />
+              <p><strong>支持的特性：</strong></p>
+              <ul>
+                <li>✅ 变量绑定：<code>let x = 5;</code></li>
+                <li>✅ 函数定义：<code>fn(x, y) { x + y }</code></li>
+                <li>✅ 数组：<code>[1, 2, 3]</code></li>
+                <li>✅ 哈希表：<code>{"name": "Monkey"}</code></li>
+                <li>
+                  ✅ 内置函数：<code
+                    >len(), first(), last(), rest(), push()</code
+                  >
+                </li>
+                <li>
+                  ✅ 输出函数：<code>write()</code> 在页面显示，<code
+                    >puts()</code
+                  >
+                  在控制台打印
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <!-- 页脚 -->
+      <footer class="footer">
+        <p>基于 <em>"Writing An Interpreter In Go"</em> 一书实现</p>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/playground/webPlayground.ts"></script>
+  </body>
+</html>
